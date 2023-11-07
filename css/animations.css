@@ -1,3 +1,7 @@
+/* key frames are used to define what an animation will do 
+In this keyframe we are translatting the element from -100px to 0px in its horizontal axis
+we also change the opacity from 0 to 1 so that it slowly comes into view */
+
 @keyframes lefttoright {
     from {
         transform: translateX(-100px);
@@ -5,14 +9,22 @@
     to {
         transform: translateX(0px);
         background-color: red;
+        opacity: 1;
     }
 }
-
-.left-to-right {
+/* We are using a double class selector to select all html elements with class left to right and active */
+.left-to-right.active {
+    /* animation left to right is linking the selected elements to the keyframes called left to right just above */
     animation: lefttoright;
+    /* animation duration: 5s tells css that we want the animation to last for 5 seconds */
     animation-duration: 5s;
+    /* animation fill mode forwards tells css that once the animation is over the element should stay on
+    The last animation frame instead of going back to whatever style it had before 
+    In this case we are using it to avoid elements recovering opacity */
+    animation-fill-mode: forwards;
 }
 
+/* keyframe to define entrance from the right  */
 @keyframes righttoleft {
     from{
         transform: translateX(100px);
@@ -20,13 +32,21 @@
     to{
         transform: translateX(0px);
         background-color: blue;
+        opacity: 1;
     }
 }
-.right-to-left{
+
+/* Class selector to link right to left class elements to right to left keyframe */
+.right-to-left.active {
     animation: righttoleft;
     animation-duration: 5s;
+    animation-fill-mode: forwards;
 }
 
+/* keyframe to describe a zigzag from the bottom 
+instead of the from and to keywords we are now using a percentage escalation that allows us to be more precise with the movement
+x axis -> corresponds to horizontal axis -> negative= let,postive= right 
+ */
 @keyframes bottomzigzag {
     0% {
         transform: translateX(-300px) translateY(250px);
@@ -50,13 +70,15 @@
     }
 }
 
-.bottom-zig-zag {
+/* Class selector to link bottom zig zag elements to bottom zig zag keyframes */
+.bottom-zig-zag.active {
     animation: bottomzigzag;
     animation-duration: 3s;
-    animation-delay: 1s;
     animation-fill-mode: forwards;
 }
 
+/* all observable elements are set to opacity 0 (meaning invisible) so that they dont appear momentarily when they are scrolled into view
+once an animation is triggerd through the intersection obseverver they will gain opacity  */
 .observable{
     opacity: 0;
 }

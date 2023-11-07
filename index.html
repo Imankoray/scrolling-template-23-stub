@@ -17,21 +17,25 @@
     <!-- ================================= TITLE ================================= -->
 
     <!-- Title container has an h1 and a button to play some music -->
-    <div class="container green left-to-right">
+    <div class="container green left-to-right observable">
       <h1>Once upon a time...</h1>
       <button id="start-audio">Want Some Music?</button>
     </div>
 
     <!-- ================================= STORY ================================= -->
       <!-- Story containers all have an image with a caption -->
-      <div class="container blue">
+      <!-- button triggered animation -->
+      <div class="container blue right-to-left">
       <img src="pictures/under-skin.webp" />
+
+    <!-- the animator button is used in the javascript to trigger an animation for this specific div -->
       <button id="animator">Animate me!</button>
       <p>Scarlet Johanson was walking round town killing some bad guys</p>
+      <!-- the reset animation button is used in the javascript to reset the animation for this specific div -->
       <button id="animator2" disabled>Go back</button>
     </div>
 
-    <div class="container green observable">
+    <div class="container green bottom-zig-zag observable">
       <img src="./pictures/hp.avif" />
       <p>
         But then Voldemort came and he tried to kill her but she was like nuh ha
@@ -39,7 +43,7 @@
       </p>
     </div>
 
-    <div class="container blue">
+    <div class="container blue left-to-right observable">
       <img src="./pictures/grey-anatomy.webp" />
       <p>
         The medical community was shaken, they couldn't understand what had
@@ -49,7 +53,7 @@
 
     <!-- ================================= CONCLUSION ================================= -->
       <!-- Conclusion container has a caption and a button that takes us to another page -->
-      <div class="container green">
+      <div class="container green bottom-zig-zag observable">
       <p>
         But AH WELL in the end all was good and she went on to become a super
         hero.
